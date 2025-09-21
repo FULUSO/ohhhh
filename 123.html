@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>天機星連續四化 2025–2028｜互動解析</title>
+  <meta name="description" content="乙丙丁戊四年連續四化：祿、權、科、忌。以互動時間軸與主題卡，探索天機星作為樞紐之星的完整循環與個人/世界影響。" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg-soft:#0f172a;
+      --card:#0f172a;
+      --card-2:#111827;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --border:#1f2937;
+      --ring:#334155;
+
+      --lu:#16a34a;  /* 祿 */
+      --quan:#ea580c;/* 權 */
+      --ke:#6366f1;  /* 科 */
+      --ji:#ef4444;  /* 忌 */
+
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --radius-sm:10px;
+    }
+    [data-theme="light"]{
+      --bg:#f7fafc;
+      --bg-soft:#eef2f7;
+      --card:#ffffff;
+      --card-2:#ffffff;
+      --text:#0b1220;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --ring:#cbd5e1;
+      --shadow: 0 10px 25px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      background: radial-gradient(1000px 500px at 80% -10%, rgba(99,102,241,.18), transparent 60%), radial-gradient(900px 500px at 10% -20%, rgba(52,211,153,.12), transparent 60%), var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:linear-gradient(180deg, rgba(11,18,32,.9), rgba(11,18,32,.6) 60%, transparent);
+      backdrop-filter:saturate(1.2) blur(6px);
+      border-bottom:1px solid transparent;
+    }
+    .nav{
+      display:flex;align-items:center;gap:16px;justify-content:space-between;
+      padding:14px 24px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+      background:linear-gradient(135deg, #1e293b, #0b1220);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      font-size:18px
+    }
+    .title{font-weight:800;font-size:18px;letter-spacing:.3px}
+    .sub{font-size:12px;color:var(--muted)}
+    .controls{display:flex;align-items:center;gap:10px}
+    .btn{
+      appearance:none;border:1px solid var(--border);background:var(--card);
+      padding:8px 12px;border-radius:10px;color:var(--text);
+      cursor:pointer;display:inline-flex;gap:8px;align-items:center;
+      transition:.18s ease; box-shadow:var(--shadow)
+    }
+    .btn:hover{transform:translateY(-1px); border-color:var(--ring)}
+    .btn-ghost{background:transparent;border-color:var(--border);box-shadow:none}
+    .badge{font-size:12px;padding:.2em .55em;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .hero{
+      margin-top:6px;padding:24px;border:1px solid var(--border);border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(99,102,241,.12), transparent 70%), var(--card);
+      box-shadow:var(--shadow)
+    }
+    .hero h1{margin:0 0 6px;font-weight:900;font-size:30px}
+    .hero p{margin:6px 0;color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){ .grid-2{grid-template-columns: 1.2fr .8fr}}
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px;
+      box-shadow:var(--shadow)
+    }
+    .card h3{margin:0 0 8px}
+    .hint{color:var(--muted);font-size:13px}
+    /* time rail */
+    .rail{position:relative;padding:16px;border:1px dashed var(--ring);border-radius:var(--radius);background:var(--card-2)}
+    .nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+    .node{
+      position:relative;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--card);
+      text-align:center;cursor:pointer;transition:.18s ease; user-select:none
+    }
+    .node.active{border-color:var(--ring); box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+    .node .yr{font-weight:800}
+    .node .stem{font-size:12px;color:var(--muted)}
+    .node .phase{display:inline-flex;gap:6px;align-items:center;margin-top:6px;font-size:13px}
+    .phase-dot{width:10px;height:10px;border-radius:50%}
+    .accent-lu{color:var(--lu)} .dot-lu{background:var(--lu)}
+    .accent-quan{color:var(--quan)} .dot-quan{background:var(--quan)}
+    .accent-ke{color:var(--ke)} .dot-ke{background:var(--ke)}
+    .accent-ji{color:var(--ji)} .dot-ji{background:var(--ji)}
+    .range-wrap{display:flex;align-items:center;gap:10px;margin-top:10px;color:var(--muted);font-size:13px}
+    input[type=range]{width:100%}
+    /* year detail */
+    .detail-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .tag{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);border-radius:999px;padding:6px 10px}
+    .tag b{letter-spacing:.5px}
+    .big{font-size:20px;font-weight:900}
+    .pill{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+    .split{display:grid;gap:12px}
+    @media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
+    .h{margin:.2em 0 .6em}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:.2em 0 .2em}
+    .kbd{padding:.2em .4em;border:1px solid var(--border);border-radius:6px;background:var(--bg-soft);font-size:12px}
+    /* filters */
+    .filters{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);padding:8px 12px;border-radius:999px;cursor:pointer;background:var(--card)}
+    .chip input{accent-color:#6366f1}
+    /* compare */
+    details{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow)}
+    details>summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none}
+    details[open] summary{border-bottom:1px dashed var(--ring)}
+    .compare{padding:16px}
+    .compare .cols{display:grid;gap:12px}
+    @media(min-width:900px){.compare .cols{grid-template-columns:1fr 1fr}}
+    .select{appearance:none;background:var(--card-2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:8px 10px}
+    /* stems */
+    .stems{display:grid;grid-template-columns: repeat(10,1fr); gap:8px;margin-top:12px}
+    .stem{border:1px solid var(--border);border-radius:10px;padding:8px 4px;text-align:center;background:var(--card-2);font-weight:700}
+    .stem.hl{box-shadow:0 0 0 2px rgba(99,102,241,.2)}
+    .stem.note{font-weight:500;color:var(--muted)}
+    .foot{margin-top:20px;color:var(--muted);font-size:12px;text-align:center}
+    .divider{height:1px;background:linear-gradient(90deg, transparent, var(--border), transparent);margin:12px 0}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .fade{animation:fade .2s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo">機</div>
+        <div>
+          <div class="title">天機星連續四化 2025–2028</div>
+          <div class="sub">祿 → 權 → 科 → 忌｜思想/計畫的完整生命週期</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="shareBtn" class="btn btn-ghost" title="分享頁面">🔗 分享</button>
+        <button id="themeBtn" class="btn" title="切換主題">🌓 主題</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>連續四化的時序密碼</h1>
+      <p>在所有甲級星中，只有「天機星」於乙、丙、丁、戊連續四年被天干引動四化：乙年化祿、丙年化權、丁年化科、戊年化忌。這道罕見的時序，彷彿一組「思維/計畫的生命週期」：從萌芽、執行、揚名，到檢討收束。</p>
+      <div class="actions" style="margin-top:10px">
+        <span class="badge">可用 ← → 快捷鍵切換年份</span>
+        <span class="badge">可開啟比較模式</span>
+        <span class="badge">暗色/亮色切換</span>
+      </div>
+    </section>
+
+    <section class="card rail" style="margin-top:14px">
+      <div class="detail-head">
+        <div>
+          <div class="pill">年度選擇器 · 點擊卡片或拖曳滑桿</div>
+        </div>
+        <div id="currentMini" class="pill"></div>
+      </div>
+      <div class="nodes" id="nodes"></div>
+      <div class="range-wrap">
+        <span>2025</span>
+        <input id="range" type="range" min="2025" max="2028" step="1" />
+        <span>2028</span>
+      </div>
+    </section>
+
+    <section class="grid grid-2" style="margin-top:14px">
+      <aside class="card fade" id="yearCard">
+        <!-- 年度總覽動態插入 -->
+      </aside>
+
+      <section class="card fade">
+        <div class="detail-head">
+          <h3 class="h">重點面向</h3>
+          <div class="filters">
+            <label class="chip"><input type="checkbox" id="f-career" checked /> 事業</label>
+            <label class="chip"><input type="checkbox" id="f-wealth" checked /> 財富</label>
+            <label class="chip"><input type="checkbox" id="f-world" checked /> 世界局勢</label>
+          </div>
+        </div>
+        <div class="split" id="panels">
+          <!-- 面向卡片動態插入 -->
+        </div>
+      </section>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h3 class="h">天干十年一輪 · 乙→丙→丁→戊的清晰篇章</h3>
+      <p class="hint">天干十數，正好對應十年循環。每十年，四化組合重啟一次；天機星的四連化，是此大循環中最能表徵「時代思潮變遷」的章節。</p>
+      <div class="stems" id="stems"></div>
+      <div id="stemInfo" class="hint" style="margin-top:10px">點選任一天干查看說明。乙→戊為本次關鍵段落。</div>
+    </section>
+
+    <details style="margin-top:14px">
+      <summary>比較兩個年份（並排對照祿/權/科/忌下的三大面向）</summary>
+      <div class="compare">
+        <div class="actions">
+          <label>年份 A：
+            <select id="cmpA" class="select">
+              <option value="2025">2025（乙·化祿）</option>
+              <option value="2026">2026（丙·化權）</option>
+              <option value="2027">2027（丁·化科）</option>
+              <option value="2028">2028（戊·化忌）</option>
+            </select>
+          </label>
+          <label>年份 B：
+            <select id="cmpB" class="select">
+              <option value="2026">2026（丙·化權）</option>
+              <option value="2025">2025（乙·化祿）</option>
+              <option value="2027">2027（丁·化科）</option>
+              <option value="2028">2028（戊·化忌）</option>
+            </select>
+          </label>
+        </div>
+        <div class="cols" id="cmpCols"></div>
+      </div>
+    </details>
+
+    <section class="card" style="margin-top:14px">
+      <h3 class="h">樞紐之星 · 天機</h3>
+      <p>天機主智慧、謀略、企劃、變動、交通、資訊、機械，對時間的流轉極為敏銳，宛如時代風向球。四化連貫顯示其「信使/樞紐」角色：把腦中的藍圖推向公共舞台，再迫使我們回望與修正，為下一輪做準備。</p>
+      <div class="divider"></div>
+      <ul class="list">
+        <li><b>乙年·化祿</b>：萌芽與資源啟動</li>
+        <li><b>丙年·化權</b>：執行與掌控成形</li>
+        <li><b>丁年·化科</b>：揚名與知識體系化</li>
+        <li><b>戊年·化忌</b>：檢討與因果收束</li>
+      </ul>
+    </section>
+
+    <div class="foot">聲明：本頁內容為文化/研究性質之整理，非財務或專業建議。© 2025</div>
+  </main>
+
+  <script>
+    ;(()=>{
+      const $ = sel => document.querySelector(sel);
+      const $$ = sel => document.querySelectorAll(sel);
+      const html = document.documentElement;
+
+      // 主題
+      const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      html.setAttribute('data-theme', savedTheme);
+      $('#themeBtn').addEventListener('click', ()=>{
+        const t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+      });
+
+      // 資料
+      const data = {
+        2025: {
+          year: 2025, stem:'乙', transform:'化祿', key:'祿', icon:'🌱', color:'var(--lu)', phase:'萌芽期',
+          yi: '「祿」代表新生、機會、資源、慾望與開始。',
+          xiang: '全球腦力活絡，新的思想/商業模式/科技概念/合作計畫湧現。點子爆發，人們對未來充滿樂觀規劃。',
+          oneLine:'播種與啟動：讓好點子落地成種子。',
+          career:[
+            '提出新企劃、學習新技能、轉換跑道或開創副業',
+            '點子多、資源易得，是播種與布局的好時機'
+          ],
+          wealth:[
+            '新投資機會湧現，尤以科技、網路、新創相關為佳',
+            '人們願為「好想法」投入資金，但須防過度樂觀'
+          ],
+          world:[
+            '圍繞新概念/新技術（AI 下一階段、新能源、太空等）展開合作與競賽',
+            '各國提出新藍圖與戰略構想'
+          ],
+          advice:[
+            '把腦中三個點子做成一頁企劃，挑一個立刻啟動',
+            '建立學習清單，至少上兩門關鍵技能課'
+          ],
+          risks:[
+            '被靈感沖昏，忽略可行性與資源配置',
+            '分心過多，難以形成可執行路線'
+          ]
+        },
+        2026: {
+          year: 2026, stem:'丙', transform:'化權', key:'權', icon:'💪', color:'var(--quan)', phase:'執行期',
+          yi:'「權」代表執行、掌控、權力、行動與實踐。',
+          xiang:'去年的點子被強力推動，不再紙上談兵。權力爭奪、標準建立與強勢作為同時登場。',
+          oneLine:'主動出擊：以制度與節奏把想法變成現實。',
+          career:[
+            '積極爭取領導職位、擴大業務，將計畫付諸實行',
+            '展現魄力與決斷，但避免過度強勢引發衝突'
+          ],
+          wealth:[
+            '投資更積極、更大膽，可能使用槓桿',
+            '追求掌控與更大回報，需管理風險與倉位'
+          ],
+          world:[
+            '科技戰、貿易壁壘與地緣結盟加劇主導權之爭',
+            '秩序進入強硬執行與角力階段'
+          ],
+          advice:[
+            '把去年企劃轉成甘特圖/OKR，設定季度里程碑',
+            '建立風控規則：最大回撤、槓桿上限、止損點'
+          ],
+          risks:[
+            '擴張過快導致內控失序',
+            '權力與資源分配不均引爆人際衝突'
+          ]
+        },
+        2027:{
+          year: 2027, stem:'丁', transform:'化科', key:'科', icon:'✨', color:'var(--ke)', phase:'揚名期',
+          yi:'「科」代表名聲、彰顯、曝光、貴人與文飾。',
+          xiang:'成功計畫廣為人知，知識體系與 SOP 建立並推廣。成果被看見、被美化、被學習。',
+          oneLine:'系統化與品牌化：把成果變成可複製的標準。',
+          career:[
+            '努力易被看見，可能晉升、獲獎、建立個人 IP',
+            '適合品牌推廣、教學分享、外部合作'
+          ],
+          wealth:[
+            '帳面績效顯現；適合理性資產配置與再平衡',
+            '別被虛名沖昏，回歸基本面'
+          ],
+          world:[
+            '國際規範/標準確立，合作模式普及化與檯面化',
+            '可能出現緩和局勢的會議或協議'
+          ],
+          advice:[
+            '沉澱方法論，輸出白皮書/開源 SOP/教學內容',
+            '建立個人品牌矩陣（官網/簡報/案例庫）'
+          ],
+          risks:[
+            '好看不耐用：過度包裝掩蓋真問題',
+            '名望綁架決策，忽視長期韌性'
+          ]
+        },
+        2028:{
+          year: 2028, stem:'戊', transform:'化忌', key:'忌', icon:'🧐', color:'var(--ji)', phase:'檢討期',
+          yi:'「忌」代表結束、收藏、阻礙、反思與因果。',
+          xiang:'快速發展累積的問題集中浮現，迫使停下檢討：方向是否正確？漏洞何在？為下一循環作準備。',
+          oneLine:'總結與收束：修補結構、守住底線、現金為王。',
+          career:[
+            '容易遇瓶頸/受阻/溝通不良，發現決策誤差',
+            '不宜冒進，專注盤點、修正、打底'
+          ],
+          wealth:[
+            '審判年：過度投機易虧損，市場或劇烈修正',
+            '保守至上，強化現金部位與風控'
+          ],
+          world:[
+            '供應鏈/交通/網路或現重大問題（如大規模駭攻、物流癱瘓、關鍵技術失效）',
+            '黑天鵝機率升高，全球進行戰略收縮與反思'
+          ],
+          advice:[
+            '做一次全盤盤點：資產負債、項目健康度、技術債',
+            '建立「停止規則」與故障演練，確保極端情境可活下來'
+          ],
+          risks:[
+            '拖延面對問題，導致小錯滾成大災',
+            '逢低盲目加碼，忽略系統性風險'
+          ]
+        }
+      };
+
+      const order = [2025,2026,2027,2028];
+
+      // 節點渲染
+      const nodesEl = $('#nodes');
+      const range = $('#range');
+      const currentMini = $('#currentMini');
+      function renderNodes(active){
+        nodesEl.innerHTML = '';
+        order.forEach(yr=>{
+          const d = data[yr];
+          const node = document.createElement('div');
+          node.className = 'node' + (yr===active ? ' active':'');
+          node.dataset.year = yr;
+          const keyClass = d.key==='祿'?'lu':d.key==='權'?'quan':d.key==='科'?'ke':'ji';
+          node.innerHTML = `
+            <div class="yr">${yr}</div>
+            <div class="stem">${d.stem}年 · 天機${d.transform}</div>
+            <div class="phase accent-${keyClass}">
+              <span class="phase-dot dot-${keyClass}"></span>
+              ${d.phase} ${d.icon}
+            </div>
+          `;
+          node.addEventListener('click', ()=>setYear(yr, true));
+          nodesEl.appendChild(node);
+        });
+      }
+
+      // 年度卡
+      const yearCard = $('#yearCard');
+      function renderYearCard(d){
+        const tone = d.key==='祿'?'lu':d.key==='權'?'quan':d.key==='科'?'ke':'ji';
+        yearCard.innerHTML = `
+          <div class="detail-head">
+            <div class="big">${d.year}（${d.stem}年）· 天機${d.transform} ${d.icon}</div>
+            <span class="tag"><span style="width:10px;height:10px;border-radius:50%;background:${getColor(d.key)}"></span> <b>${d.phase}</b></span>
+          </div>
+          <div class="divider"></div>
+          <p><b>意義：</b>${d.yi}</p>
+          <p><b>象徵：</b>${d.xiang}</p>
+          <p class="hint">一句話定位：${d.oneLine}</p>
+          <div class="divider"></div>
+          <div class="split">
+            <div>
+              <h4 class="h">行動建議</h4>
+              <ul class="list">
+                ${d.advice.map(x=>`<li>${x}</li>`).join('')}
+              </ul>
+            </div>
+            <div>
+              <h4 class="h">需要留意</h4>
+              <ul class="list">
+                ${d.risks.map(x=>`<li>${x}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+        currentMini.textContent = `${d.year} · ${d.stem}年 · ${d.transform} · ${d.phase}`;
+      }
+
+      // 面向卡
+      const panels = $('#panels');
+      const filters = {
+        career: $('#f-career'),
+        wealth: $('#f-wealth'),
+        world: $('#f-world'),
+      };
+      Object.values(filters).forEach(el=>el.addEventListener('change', ()=>renderPanels(currentYear)));
+
+      function renderPanels(yr){
+        const d = data[yr];
+        const fn = (title, arr, id)=>`
+          <div class="card" data-panel="${id}">
+            <h3 class="h">${title}</h3>
+            <ul class="list">${arr.map(x=>`<li>${x}</li>`).join('')}</ul>
+          </div>
+        `;
+        const arr = [];
+        if(filters.career.checked) arr.push(fn('個人事業', d.career, 'career'));
+        if(filters.wealth.checked) arr.push(fn('個人財富', d.wealth, 'wealth'));
+        if(filters.world.checked) arr.push(fn('世界局勢發展', d.world, 'world'));
+        panels.innerHTML = arr.join('');
+      }
+
+      // 十天干
+      const stemsEl = $('#stems');
+      const stems = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+      const stemsMeta = {
+        '乙':'天機化祿：萌芽與啟動',
+        '丙':'天機化權：執行與掌控',
+        '丁':'天機化科：揚名與體系化',
+        '戊':'天機化忌：檢討與收束'
+      };
+      function renderStems(){
+        stemsEl.innerHTML = '';
+        stems.forEach(s=>{
+          const div = document.createElement('div');
+          const hl = ['乙','丙','丁','戊'].includes(s) ? ' hl' : '';
+          div.className = 'stem' + hl;
+          div.textContent = s;
+          div.title = stemsMeta[s] || '十年循環之一環';
+          div.addEventListener('click', ()=>{
+            $('#stemInfo').textContent = (stemsMeta[s] || `${s}：十年循環之一環`) + '（十年一輪，組合重啟）';
+          });
+          stemsEl.appendChild(div);
+        });
+      }
+
+      // 比較
+      const cmpA = $('#cmpA'), cmpB = $('#cmpB'), cmpCols = $('#cmpCols');
+      [cmpA, cmpB].forEach(el=>el.addEventListener('change', renderCompare));
+      function renderCompare(){
+        const A = data[cmpA.value], B = data[cmpB.value];
+        cmpCols.innerHTML = [A,B].map(d=>`
+          <div class="card">
+            <div class="detail-head">
+              <div class="big">${d.year}（${d.stem}）· ${d.transform} ${d.icon}</div>
+              <span class="badge">${d.phase}</span>
+            </div>
+            <div class="divider"></div>
+            <h4 class="h">個人事業</h4>
+            <ul class="list">${d.career.map(x=>`<li>${x}</li>`).join('')}</ul>
+            <h4 class="h">個人財富</h4>
+            <ul class="list">${d.wealth.map(x=>`<li>${x}</li>`).join('')}</ul>
+            <h4 class="h">世界局勢</h4>
+            <ul class="list">${d.world.map(x=>`<li>${x}</li>`).join('')}</ul>
+          </div>
+        `).join('');
+      }
+
+      // 分享
+      $('#shareBtn').addEventListener('click', async ()=>{
+        const url = location.href;
+        const year = currentYear;
+        const text = `天機星連續四化 ${year}：${data[year].stem}年·${data[year].transform}·${data[year].phase}`;
+        if(navigator.share){
+          try{ await navigator.share({title:document.title, text, url}); }catch(e){}
+        }else{
+          await navigator.clipboard.writeText(url);
+          alert('連結已複製！');
+        }
+      });
+
+      // 年度狀態
+      let currentYear = order[0];
+      function getColor(key){ return key==='祿'?'var(--lu)':key==='權'?'var(--quan)':key==='科'?'var(--ke)':'var(--ji)'; }
+
+      function setYear(yr, pushHash=false){
+        currentYear = yr;
+        localStorage.setItem('year', yr);
+        renderNodes(yr);
+        renderYearCard(data[yr]);
+        renderPanels(yr);
+        range.value = String(yr);
+        if(pushHash) location.hash = `#${yr}`;
+      }
+
+      // Range
+      range.addEventListener('input', e=> setYear(parseInt(e.target.value), true));
+
+      // 鍵盤切換
+      document.addEventListener('keydown', e=>{
+        if(e.key==='ArrowLeft' || e.key==='ArrowRight'){
+          const idx = order.indexOf(currentYear);
+          if(e.key==='ArrowLeft' && idx>0) setYear(order[idx-1], true);
+          if(e.key==='ArrowRight' && idx<order.length-1) setYear(order[idx+1], true);
+        }
+      });
+
+      // 初始化
+      function init(){
+        const hashYear = parseInt(location.hash.replace('#',''));
+        const saved = parseInt(localStorage.getItem('year'));
+        const start = order.includes(hashYear)?hashYear : order.includes(saved)?saved : 2025;
+        renderNodes(start);
+        setYear(start, false);
+        renderStems();
+        renderCompare();
+      }
+      window.addEventListener('hashchange', ()=>{
+        const hy = parseInt(location.hash.replace('#',''));
+        if(order.includes(hy)) setYear(hy, false);
+      });
+      init();
+    })();
+  </script>
+</body>
+</html>
