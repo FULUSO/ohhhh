@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>momoko DOLL とりせつ｜台灣用語日台雙語對照手冊</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              hotpink: '#E93B77',
+              deeppink: '#D42661',
+              lightpink: '#FFF0F5',
+              softpink: '#FFE4ED',
+              dark: '#2B2125',
+              muted: '#705860'
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', '"M PLUS Rounded 1c"', 'sans-serif'],
+            rounded: ['"M PLUS Rounded 1c"', '"Noto Sans TC"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF5F7;
+      color: #2B2125;
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .speech-bubble {
+      position: relative;
+      background: #FFFFFF;
+      border: 2px solid #E93B77;
+      border-radius: 18px;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 24px;
+      border-width: 10px 9px 0;
+      border-style: solid;
+      border-color: #FFFFFF transparent;
+      display: block;
+      width: 0;
+    }
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -13px;
+      left: 23px;
+      border-width: 12px 10px 0;
+      border-style: solid;
+      border-color: #E93B77 transparent;
+      display: block;
+      width: 0;
+    }
+    .book-shadow {
+      box-shadow: 0 10px 30px -5px rgba(233, 59, 119, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-20 selection:bg-brand-hotpink selection:text-white">
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-softpink shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-2">
+        <span class="bg-brand-hotpink text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wider">momoko DOLL</span>
+        <h1 class="text-base sm:text-lg font-bold text-brand-dark tracking-tight">とりせつ｜玩賞玩法繁中對照指南</h1>
+      </div>
+
+      <!-- 檢視模式切換 -->
+      <div class="flex items-center space-x-1.5 bg-brand-lightpink p-1 rounded-xl border border-brand-softpink text-xs font-medium">
+        <button onclick="setLangMode('both')" id="btn-both" class="px-2.5 py-1 rounded-lg transition-all bg-brand-hotpink text-white shadow-sm">
+          <i class="fa-solid fa-language mr-1"></i>日台對照
+        </button>
+        <button onclick="setLangMode('tw')" id="btn-tw" class="px-2.5 py-1 rounded-lg transition-all text-brand-muted hover:text-brand-hotpink">
+          繁中為主
+        </button>
+        <button onclick="setLangMode('ja')" id="btn-ja" class="px-2.5 py-1 rounded-lg transition-all text-brand-muted hover:text-brand-hotpink">
+          日文原文
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主視覺橫幅：手冊封面風格 -->
+  <div class="bg-gradient-to-r from-[#E93B77] via-[#FA538C] to-[#E93B77] text-white py-10 px-4 mb-8 shadow-md">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left space-y-2">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold tracking-wider">
+          <i class="fa-regular fa-heart"></i> 官方說明書（取扱説明書）典藏版
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-wide font-rounded">momoko DOLL とりせつ</h2>
+        <p class="text-pink-100 font-medium text-sm sm:text-base">How to Enjoy Playing with momoko DOLL｜新手與老手娃友必備上手寶典</p>
+        <div class="pt-2 flex flex-wrap gap-2 justify-center md:justify-start text-xs">
+          <span class="bg-white/15 px-2.5 py-1 rounded-md">依原手冊順序編排：01.jpg ~ 07.jpg</span>
+          <span class="bg-white/15 px-2.5 py-1 rounded-md">台灣慣用語精準翻譯</span>
+        </div>
+      </div>
+      <div class="bg-white text-brand-hotpink rounded-2xl p-4 shadow-xl text-center flex flex-col items-center w-52 shrink-0 border-4 border-pink-100">
+        <i class="fa-solid fa-sparkles text-2xl mb-1 text-[#FA538C]"></i>
+        <div class="text-xs font-bold text-gray-500">25 週年紀念</div>
+        <div class="text-2xl font-black tracking-tight my-1">25th DOLL</div>
+        <div class="text-[11px] text-gray-600">大人女子專屬的真實時尚娃娃</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分頁導航快捷鈕 -->
+  <div class="max-w-5xl mx-auto px-4 mb-8">
+    <div class="flex items-center justify-start overflow-x-auto gap-2 pb-2 scrollbar-none text-xs font-semibold">
+      <a href="#page-01" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">01. 封面</a>
+      <a href="#page-02" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">02. STEP 1～3 穿搭起步</a>
+      <a href="#page-03" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">03. STEP 4～7 細節呵護</a>
+      <a href="#page-04" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">04. STEP 8～11 秀髮與站姿</a>
+      <a href="#page-05" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">05. STEP 12～14 姿態與情境</a>
+      <a href="#page-06" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">06. STEP 15～17 鏡頭美學</a>
+      <a href="#page-07" class="shrink-0 px-3.5 py-1.5 rounded-full bg-white border border-brand-softpink hover:border-brand-hotpink hover:text-brand-hotpink text-brand-muted transition">07. 封底 品牌簡介</a>
+    </div>
+  </div>
+
+  <!-- 主內容區塊容器 -->
+  <main class="max-w-5xl mx-auto px-4 space-y-12">
+
+    <!-- ========================================================
+         PAGE 01 (封面 01.jpg)
+    ======================================================== -->
+    <section id="page-01" class="scroll-mt-24">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-brand-softpink book-shadow relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-brand-hotpink text-white text-xs font-bold px-4 py-1.5 rounded-bl-2xl">
+          手冊封面 01.jpg
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 items-center">
+          <!-- 封面示意意象卡 -->
+          <div class="md:col-span-4 flex justify-center">
+            <div class="w-56 h-80 bg-gradient-to-b from-[#E93B77] to-[#C9225E] rounded-2xl p-5 text-white shadow-xl flex flex-col justify-between items-center text-center border-4 border-white">
+              <div class="space-y-1">
+                <span class="text-[10px] tracking-widest uppercase bg-black/20 px-2 py-0.5 rounded-full">PetWORKs / Sekiguchi</span>
+                <div class="text-3xl font-black tracking-tight mt-1">momoko</div>
+                <div class="text-2xl font-bold tracking-widest text-pink-200">DOLL</div>
+              </div>
+              <div class="my-2 bg-white/20 w-24 h-28 rounded-xl flex items-center justify-center flex-col">
+                <i class="fa-solid fa-person-dress text-4xl text-pink-100"></i>
+                <span class="text-[10px] mt-1 text-white">Illustration</span>
+              </div>
+              <div>
+                <div class="text-2xl font-black bg-white text-brand-hotpink px-3 py-0.5 rounded-lg inline-block shadow">とりせつ</div>
+                <div class="text-[10px] tracking-tighter mt-1 opacity-90">取扱説明書</div>
+                <div class="text-[9px] text-pink-100 mt-0.5">How to Enjoy Playing with momoko DOLL</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 說明文對照 -->
+          <div class="md:col-span-8 space-y-4">
+            <div class="border-b border-gray-100 pb-3">
+              <span class="text-xs font-bold text-brand-hotpink uppercase tracking-wider">Cover Information</span>
+              <h3 class="text-xl font-bold text-brand-dark">封面標題與意涵對照</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <!-- 日文原文 -->
+              <div class="lang-ja bg-pink-50/60 rounded-2xl p-4 border border-pink-100">
+                <div class="text-xs font-bold text-brand-deeppink mb-1 flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-brand-hotpink"></span> 日文原文 (Japanese)
+                </div>
+                <div class="space-y-2 text-sm text-gray-800">
+                  <p class="font-bold text-base">momoko DOLL</p>
+                  <p class="font-bold text-lg text-brand-hotpink">とりせつ <span class="text-xs text-gray-500 font-normal">（取扱説明書）</span></p>
+                  <p class="text-xs text-gray-600 italic">How to Enjoy Playing with momoko DOLL</p>
+                </div>
+              </div>
+
+              <!-- 台灣繁中 -->
+              <div class="lang-tw bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                <div class="text-xs font-bold text-gray-700 mb-1 flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-gray-600"></span> 台灣繁體中文 (Traditional Chinese)
+                </div>
+                <div class="space-y-2 text-sm text-gray-800">
+                  <p class="font-bold text-base">momoko DOLL 桃子娃娃</p>
+                  <p class="font-bold text-lg text-brand-dark">操作說明手冊 <span class="text-xs text-gray-500 font-normal">（玩法指南）</span></p>
+                  <p class="text-xs text-gray-600 font-medium">如何盡情享受與 momoko DOLL 相伴的玩賞指南</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 譯註小錦囊 -->
+            <div class="bg-amber-50 rounded-xl p-3 border border-amber-200/80 text-xs text-amber-900 flex items-start gap-2">
+              <i class="fa-solid fa-lightbulb text-amber-500 mt-0.5 shrink-0"></i>
+              <div>
+                <strong>娃友名詞備忘：</strong>「とりせつ (Torisetsu)」是日文「取扱説明書（とりあつかいせつめいしょ，使用說明書）」的親切簡稱。整本小冊子以可愛的 Q 版漫畫風格插畫（插畫家 enju-k 繪製），指導娃主如何溫柔換裝、擺姿勢與進行外拍。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 02 (內頁 02.jpg : STEP 1, 2, 3)
+    ======================================================== -->
+    <section id="page-02" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3 border-l-4 border-brand-hotpink pl-3">
+        <h3 class="text-xl font-bold text-brand-dark">內頁 P.1｜穿搭起步（02.jpg）</h3>
+        <span class="text-xs text-brand-muted bg-white px-2.5 py-1 rounded-full border border-gray-200">STEP 1 ～ STEP 3</span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- STEP 1 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 1</span>
+              <span class="text-xs text-gray-400 font-medium">穿搭樂趣</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                ファッションドールの醍醐味はなんといっても着せ替え、そしてレイヤードスタイル。赴くままにコーディネイトを楽しもう！
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                時尚娃娃（Fashion Doll）最大的樂趣與魅力，莫過於替她換裝，以及多層次的穿搭造型。隨心所欲地享受自由搭配的樂趣吧！
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-50/60 rounded-xl p-2.5 text-[11px] text-brand-muted border border-rose-100">
+            <i class="fa-solid fa-shirt text-brand-hotpink mr-1"></i>
+            <strong>重點：</strong>「レイヤードスタイル (Layered style)」即多件單品疊穿的多層次穿搭法，是 momoko 最具特色的潮流穿搭玩法。
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 2</span>
+              <span class="text-xs text-gray-400 font-medium">鞋履先決</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                靴が決まればコーディネイトは決まる。悩んだ時は靴から決める。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                鞋子決定好了，整體穿搭風格就搞定了一半。猶豫不決的時候，不妨先從挑選鞋款開始決定吧！
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-50/60 rounded-xl p-2.5 text-[11px] text-brand-muted border border-rose-100">
+            <i class="fa-solid fa-shoe-prints text-brand-hotpink mr-1"></i>
+            <strong>鞋子哲學：</strong>從長靴、高跟鞋到休閒球鞋，鞋款奠定了娃娃當天的整體氣場與風格基調。
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 3</span>
+              <span class="text-xs text-gray-400 font-medium">細部調整工具</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                洋服の細かい部分はピンセットを使うと便利です。尖った先で生地やボディを傷めないように注意。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                整理服裝細微角落時，善用鑷子會非常順手方便。但要特別注意尖端處，小心別刺傷了布料或刮傷娃娃素體喔！
+              </div>
+            </div>
+          </div>
+
+          <!-- 插畫台詞氣泡 -->
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <div class="font-bold text-brand-hotpink flex items-center gap-1">
+              <i class="fa-regular fa-comment-dots"></i> 對話框台詞：
+            </div>
+            <div class="text-gray-600 mt-0.5">
+              <span class="text-gray-800 font-bold">日：</span>たるみとかね (Sags for example)<br>
+              <span class="text-brand-deeppink font-bold">中：</span>像是衣角塞整、多餘的皺褶拉順等等喔！
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 03 (內頁 03.jpg : STEP 4, 5, 6, 7)
+    ======================================================== -->
+    <section id="page-03" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3 border-l-4 border-brand-hotpink pl-3">
+        <h3 class="text-xl font-bold text-brand-dark">內頁 P.2｜穿衣細節與巧思（03.jpg）</h3>
+        <span class="text-xs text-brand-muted bg-white px-2.5 py-1 rounded-full border border-gray-200">STEP 4 ～ STEP 7</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- STEP 4 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 4</span>
+            <span class="text-xs text-gray-400 font-medium">合身剪裁</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              精巧に作られているmomokoの服はジャストフィットサイズ。ゆっくり丁寧に着せていきます。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              工藝精巧細膩的 momoko 服飾版型極為合身（Just fit）。替她穿衣時請放慢動作、溫柔細緻地穿上去。
+            </div>
+          </div>
+
+          <div class="text-[11px] text-brand-muted bg-pink-50/30 p-2.5 rounded-xl border border-pink-100">
+            💡 <strong>貼心小提醒：</strong>因為版型貼合人體工學，切勿大力硬扯袖口，以免車縫線崩裂。
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 5</span>
+            <span class="text-xs text-gray-400 font-medium">分清左右鞋款</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              momoko靴は左右で違うデザインの本格仕様。左右を間違えないように。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              momoko 的鞋款是講究左右腳不同足型設計的本格專業規格。穿鞋時請仔細辨別，千萬別左右腳穿反了喔！
+            </div>
+          </div>
+
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <span class="font-bold text-brand-hotpink">對話框台詞：</span>
+            <span class="text-gray-700">「歩きにくい… (It's hard to walk!)」→ <strong class="text-brand-deeppink">「穿反了很難走路耶…」</strong></span>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 6</span>
+            <span class="text-xs text-gray-400 font-medium">線圈袢扣呵護</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              洋服のラインをシャープに見せるためmomokoの洋服は糸ループを多く使っています。糸が切れないよう慎重に。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              為了讓服裝線條更加俐落顯瘦，momoko 的衣服大量採用了極細的「線圈袢扣（糸ループ）」。扣合時請務必放輕力道，避免拉斷細線。
+            </div>
+          </div>
+
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <span class="font-bold text-brand-hotpink">對話框台詞：</span>
+            <span class="text-gray-700">「ガンバッテ！ (Careful, please!)」→ <strong class="text-brand-deeppink">「請加油，小心細心點扣喔！」</strong></span>
+          </div>
+        </div>
+
+        <!-- STEP 7 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 7</span>
+            <span class="text-xs text-brand-hotpink font-bold bg-pink-50 px-2 py-0.5 rounded-full text-[11px]">★ 娃友秘技</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              ニットなどの着せつけの際には手にソックスを履かせると便利。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              幫她穿套頭毛衣或針織衣物時，可以先在她手部套上小襪子（或小塑膠袋），穿袖子時就會無比滑順好穿！
+            </div>
+          </div>
+
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <span class="font-bold text-brand-hotpink">對話框台詞：</span>
+            <span class="text-gray-700">「指がひっかからないよ！ (My fingers won't be caught!)」→ <strong class="text-brand-deeppink">「手指頭不會再被毛線勾到卡住囉！」</strong></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 04 (內頁 04.jpg : STEP 8, 9, 10, 11)
+    ======================================================== -->
+    <section id="page-04" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3 border-l-4 border-brand-hotpink pl-3">
+        <h3 class="text-xl font-bold text-brand-dark">內頁 P.3｜秀髮梳理與立正站姿（04.jpg）</h3>
+        <span class="text-xs text-brand-muted bg-white px-2.5 py-1 rounded-full border border-gray-200">STEP 8 ～ STEP 11</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- STEP 8 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 8</span>
+            <span class="text-xs text-gray-400 font-medium">撫髮療癒時光</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              momokoの髪の毛を撫でながら整えます。なぜかほっとします。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              一邊溫柔撫摸 momoko 的髮絲一邊梳順整理。不知為何，心靈特別感到平靜放鬆與被治癒。
+            </div>
+          </div>
+          <div class="text-[11px] text-gray-500 italic">
+            Arrange momoko DOLL's hair by gently stroking her head. You would feel relaxed.
+          </div>
+        </div>
+
+        <!-- STEP 9 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 9</span>
+            <span class="text-xs text-gray-400 font-medium">瀏海打理與防塵套</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              前髪の浮きや、ボサボサ感に注意しましょう。水をつけたり櫛で整えます。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              隨時注意瀏海是否有翹起或凌亂毛躁的狀況。可以用手指沾少許清水撫平，或用專用細梳梳整齊。
+            </div>
+          </div>
+
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <span class="font-bold text-brand-hotpink">對話框台詞（重要保存秘訣）：</span>
+            <div class="text-gray-700 mt-1">
+              「スリーブはすてないであそばない時はつけておこうね♡」<br>
+              → <strong class="text-brand-deeppink">「透明頭部保護膠套（Sleeve）千萬別丟掉喔！平時沒在把玩時，請記得套回頭上保護髮型♡」</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 10 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 10</span>
+            <span class="text-xs text-gray-400 font-medium">衣容最後確認</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              楽しく着せ替えた後は身だしなみチェックを忘れずに。特に洋服の襟、袖、裾は念入りに。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              開心換完裝後，別忘了幫她做最後的儀容檢查！特別是上衣的領口、袖口與衣襬下緣，一定要仔細拉正理平。
+            </div>
+          </div>
+          <div class="text-[11px] text-gray-500 italic">
+            Especially, take a close look at the collar, the sleeves and the hem.
+          </div>
+        </div>
+
+        <!-- STEP 11 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 11</span>
+            <span class="text-xs text-gray-400 font-medium">尋找重心地心引力</span>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+              momokoは重心のバランスを考えながら地球からまっすぐにしっかり立たせます。
+            </div>
+            <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+              <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+              調整重心平衡感，讓 momoko 與地面保持垂直、穩穩牢固地自立站立在地球上。
+            </div>
+          </div>
+
+          <div class="speech-bubble p-2.5 text-[11px]">
+            <span class="font-bold text-brand-hotpink">對話框台詞：</span>
+            <span class="text-gray-700">「おっとっと… oops…」→ <strong class="text-brand-deeppink">「哎呀呀……（重心沒抓好差點搖晃傾倒）」</strong></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 05 (內頁 05.jpg : STEP 12, 13, 14)
+    ======================================================== -->
+    <section id="page-05" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3 border-l-4 border-brand-hotpink pl-3">
+        <h3 class="text-xl font-bold text-brand-dark">內頁 P.4｜擺姿靈感與攝影情境（05.jpg）</h3>
+        <span class="text-xs text-brand-muted bg-white px-2.5 py-1 rounded-full border border-gray-200">STEP 12 ～ STEP 14</span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- STEP 12 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 12</span>
+              <span class="text-xs text-gray-400 font-medium">放鬆自然姿勢</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                少し首を傾けてみたり手で動きをつけてみたりリラックスして見えるポージングを心がけます。クールからキューティまでいろいろチャレンジ。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                試著讓頭部微偏傾斜、或是微調雙手營造動態感，擺出散發自然鬆弛感的 POSE。從帥氣俐落到甜美俏皮，大膽挑戰各種風格吧！
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-gray-500 italic border-t pt-2">
+            Try all kinds of impressions from cool to cute.
+          </div>
+        </div>
+
+        <!-- STEP 13 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 13</span>
+              <span class="text-xs text-gray-400 font-medium">天生上相不挑相機</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                スマホでもコンデジでも一眼レフでもOKです。momokoはカメラを選びません。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                不管是智慧型手機、隨身小數位相機（類單/小DC）還是專業單眼相機通通 OK。momoko 是完美的模特兒，完全不挑器材！
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-50/60 rounded-xl p-2.5 text-[11px] text-brand-muted border border-rose-100">
+            <i class="fa-solid fa-camera text-brand-hotpink mr-1"></i>
+            <strong>台灣器材名稱：</strong>日文「コンデジ」即 Compact Digital Camera（隨身數位相機/小DC），「一眼レフ」即單眼反光相機。
+          </div>
+        </div>
+
+        <!-- STEP 14 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 14</span>
+              <span class="text-xs text-gray-400 font-medium">場景與微縮情境</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                木にもたれかけさせたり本棚にそっと置いてみたりmomokoと一緒に撮る背景や小物、シチュエーションに拘ってさらに充実のドールライフを。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                讓她輕倚在樹幹旁、或是悄悄坐在房間的書架上。講究與 momoko 一起入鏡的背景構圖、微縮道具與故事氛圍，讓你的娃友生活（Doll Life）更加充實滿足！
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-gray-500 italic border-t pt-2">
+            Enhance your doll life with creative backdrops and props.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 06 (內頁 06.jpg : STEP 15, 16, 17)
+    ======================================================== -->
+    <section id="page-06" class="scroll-mt-24 space-y-6">
+      <div class="flex items-center gap-3 border-l-4 border-brand-hotpink pl-3">
+        <h3 class="text-xl font-bold text-brand-dark">內頁 P.5｜攝影視角與拍照秘訣（06.jpg）</h3>
+        <span class="text-xs text-brand-muted bg-white px-2.5 py-1 rounded-full border border-gray-200">STEP 15 ～ STEP 17</span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- STEP 15 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 15</span>
+              <span class="text-xs text-gray-400 font-medium">多重視角切換</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                立たせてみたり、座らせてみたりmomokoを動かしつつ、自分も動いていろいろな角度から。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                讓她站立、讓她坐下，一邊調整 momoko 的姿態，掌鏡的自己也要跟著移步換景，從由上而下、平視或低角度等各種方向嘗試取景。
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-gray-500 italic border-t pt-2">
+            Move momoko DOLL around as well as yourself and try various camera angles.
+          </div>
+        </div>
+
+        <!-- STEP 16 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 16</span>
+              <span class="text-xs text-brand-hotpink font-bold bg-pink-50 px-2 py-0.5 rounded-full text-[11px]">★ 攝影基本功</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                ピントは眼に合わせるのが基本です。
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                將焦點精準對準在她的「雙眼」上，這是娃娃人像攝影最核心的不二法則！
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-50/60 rounded-xl p-2.5 text-[11px] text-brand-muted border border-rose-100">
+            <i class="fa-regular fa-eye text-brand-hotpink mr-1"></i>
+            <strong>眼神光精髓：</strong>只要眼睛對焦清晰、映入微光，玩偶神態瞬間就會宛如擁有了靈魂般生動。
+          </div>
+        </div>
+
+        <!-- STEP 17 -->
+        <div class="bg-white rounded-3xl p-5 border border-brand-softpink book-shadow flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-brand-hotpink text-white font-black text-xs px-3 py-1 rounded-full shadow-sm">STEP 17</span>
+              <span class="text-xs text-gray-400 font-medium">最終心法</span>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="lang-ja bg-pink-50/50 p-3 rounded-xl border border-pink-100 text-xs leading-relaxed text-gray-700">
+                <div class="font-bold text-brand-hotpink mb-1">【日文原文】</div>
+                悩みすぎず、直感を大切に。そして最後にこの「とりせつ」のことをすべて忘れ、気持ちを込めてたくさん撮影しましょう！
+              </div>
+              <div class="lang-tw bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs leading-relaxed text-gray-800 font-medium">
+                <div class="font-bold text-gray-700 mb-1">【台灣繁中】</div>
+                不要想得太複雜、相信你當下的直覺。最後——請把這本「說明書」上的規矩全部拋到腦後，滿懷著對她的愛意盡情按下快門吧！
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-brand-deeppink font-semibold bg-pink-100/50 p-2.5 rounded-xl border border-pink-200">
+            ❤️ <strong>愛的最高境界：</strong>玩娃娃最重要的是開心自在，拍出自己心中最喜歡的瞬間！
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PAGE 07 (封底 07.jpg : momoko DOLL PROFILE)
+    ======================================================== -->
+    <section id="page-07" class="scroll-mt-24">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-brand-softpink book-shadow relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-brand-dark text-white text-xs font-bold px-4 py-1.5 rounded-bl-2xl">
+          手冊封底 07.jpg
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div class="text-center space-y-2 border-b border-gray-100 pb-5">
+            <div class="inline-block bg-pink-100 text-brand-hotpink text-xs font-black px-3 py-1 rounded-full tracking-widest uppercase">
+              Official Profile & Milestone
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-brand-dark tracking-wide font-rounded">momoko DOLL PROFILE</h3>
+            <p class="text-xs text-gray-500">25 週年歷程回顧與品牌簡介</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- 日文原文欄 -->
+            <div class="lang-ja bg-pink-50/40 rounded-2xl p-5 border border-pink-100 space-y-4 text-xs leading-relaxed text-gray-700">
+              <div class="font-bold text-brand-deeppink text-sm flex items-center gap-1.5 border-b border-pink-100 pb-2">
+                <i class="fa-solid fa-file-lines"></i> 日文原文
+              </div>
+              <p>
+                25周年を迎えた、大人の女性のための“リアルファッション”着せ替え人形。ペットワークスのアートディレクター・真鍋奈見江がプロデュースする、東京の今を映し出す1/6スケール（身長約27cm）のリアルファッションドール「momoko（モモコ）」。
+              </p>
+              <p>
+                2001年8月のデビュー以来、インディーズドールとしてドールコレクターだけでなく、それまで人形に興味のなかった大人の女性にも支持を広げてきた。2005年にはセキグチより一般発売され、おしゃれなファッションドールとして、またアートピースとして、ストイックなまでに追求したファッションや小物の完成度が高く評価されている。
+              </p>
+              <p>
+                さらに、CM出演やモデル活動をはじめ、ファッションブランドやアーティスト、ミュージシャンとの数々のコラボレーションを展開。現在では、日本を代表するファッションドールブランドのひとつとして、国内外の多くのファンに愛されている。
+              </p>
+            </div>
+
+            <!-- 台灣繁體中文翻譯欄 -->
+            <div class="lang-tw bg-gray-50 rounded-2xl p-5 border border-gray-200 space-y-4 text-xs leading-relaxed text-gray-800">
+              <div class="font-bold text-gray-800 text-sm flex items-center gap-1.5 border-b border-gray-200 pb-2">
+                <i class="fa-solid fa-circle-check text-emerald-600"></i> 台灣繁體中文
+              </div>
+              <p>
+                迎向 25 週年、專為成年女性量身打造的「真實時尚」換裝娃娃。由知名設計工作室 PetWORKs 藝術總監<strong>真鍋奈見江</strong>親自擔綱企劃製作，完美映照出東京現代流行脈動的 1/6 比例（身高約 27 公分）擬真時尚娃娃「<strong>momoko（桃子娃娃）</strong>」。
+              </p>
+              <p>
+                自 2001 年 8 月以獨立設計師娃娃（Indies Doll）之姿驚艷亮相以來，不僅擄獲了眾多專業娃娃收藏家的芳心，更將魅力拓展至以往從未接觸過娃娃的廣大成熟女性族群。2005 年起正式由 Sekiguchi（關口株式會社）發行量產一般版，作為引領潮流的時尚娃娃與藝術傑作，其近乎苦行僧般極致追求的服裝剪裁與配件精緻度，在海內外均獲得了極高評價。
+              </p>
+              <p>
+                此外，momoko 還曾登上電視廣告、參與各類模特兒展演企劃，並與眾多頂尖時尚品牌、藝術家及音樂人展開多元聯名跨界合作。時至今日，她已成為代表日本當代文化的標誌性時尚娃娃品牌之一，深受全球各國粉絲的真摯喜愛。
+              </p>
+            </div>
+          </div>
+
+          <!-- 版權標記與工作人員資訊 -->
+          <div class="bg-white rounded-2xl p-4 border border-gray-200 text-center space-y-2 text-xs text-gray-600">
+            <div class="flex flex-wrap justify-center items-center gap-4 text-brand-dark font-medium">
+              <span><strong>官方網站：</strong><a href="https://www.momokodoll.com" target="_blank" class="text-brand-hotpink hover:underline">www.momokodoll.com</a></span>
+              <span><strong>版權：</strong>momoko™ ©PetWORKs Co.,Ltd.</span>
+              <span><strong>生產發行：</strong>Produced by Sekiguchi Co.,Ltd.</span>
+            </div>
+            <div class="text-[11px] text-gray-400 pt-1 border-t border-gray-100 flex flex-wrap justify-center gap-3">
+              <span><strong>說明書插畫：</strong>enju-k</span>
+              <span><strong>寫真攝影：</strong>Hirotaka Yonekura</span>
+              <span><strong>特別銘謝：</strong>project breeder</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 浮動返回頂端鈕 -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-brand-hotpink text-white shadow-lg flex items-center justify-center hover:bg-brand-deeppink transition transform hover:scale-105 active:scale-95" title="回到頂部">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // 語言切換邏輯
+    function setLangMode(mode) {
+      const btnBoth = document.getElementById('btn-both');
+      const btnTw = document.getElementById('btn-tw');
+      const btnJa = document.getElementById('btn-ja');
+      const jaElements = document.querySelectorAll('.lang-ja');
+      const twElements = document.querySelectorAll('.lang-tw');
+
+      // 重置按鈕外觀
+      [btnBoth, btnTw, btnJa].forEach(btn => {
+        btn.className = "px-2.5 py-1 rounded-lg transition-all text-brand-muted hover:text-brand-hotpink";
+      });
+
+      if (mode === 'both') {
+        btnBoth.className = "px-2.5 py-1 rounded-lg transition-all bg-brand-hotpink text-white shadow-sm";
+        jaElements.forEach(el => el.classList.remove('hidden'));
+        twElements.forEach(el => el.classList.remove('hidden'));
+      } else if (mode === 'tw') {
+        btnTw.className = "px-2.5 py-1 rounded-lg transition-all bg-brand-hotpink text-white shadow-sm";
+        jaElements.forEach(el => el.classList.add('hidden'));
+        twElements.forEach(el => el.classList.remove('hidden'));
+      } else if (mode === 'ja') {
+        btnJa.className = "px-2.5 py-1 rounded-lg transition-all bg-brand-hotpink text-white shadow-sm";
+        jaElements.forEach(el => el.classList.remove('hidden'));
+        twElements.forEach(el => el.classList.add('hidden'));
+      }
+    }
+  </script>
+</body>
+</html>
